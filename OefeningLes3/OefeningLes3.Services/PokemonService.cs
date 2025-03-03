@@ -3,7 +3,7 @@ using OefeningLes3.Services.Interfaces;
 
 namespace OefeningLes3.Services;
 
-public class PokemonService(IPokemonRepository pokemonRepository) : IPokemonService
+public class PokemonService(IPokemonRepository pokemonRepository, IVideogameRepository videogameRepository) : IPokemonService
 {
     public PokemonResponseContract Get(int id)
     {
@@ -17,9 +17,18 @@ public class PokemonService(IPokemonRepository pokemonRepository) : IPokemonServ
 
     public PokemonResponseContract Create(PokemonRequestContract pokemon)
     {
-        var newPokemon = pokemon.Map();
-        var createdPokemon = pokemonRepository.Create(newPokemon);
-        return createdPokemon;
+        bool isUniekePokemonNaam = pokemonRepository.IsNaamUniek(pokemon.Naam);
+
+        if (isUniekePokemonNaam)
+        {
+            var newPokemon = pokemon.Map();
+            var createdPokemon = pokemonRepository.Create(newPokemon);
+            return createdPokemon;
+        }
+        else
+        {
+            throw new Exception("Er bestaat al een pokemon met die naam");
+        }
     }
 
     public void Update(PokemonRequestContract pokemon, int id)
@@ -32,6 +41,10 @@ public class PokemonService(IPokemonRepository pokemonRepository) : IPokemonServ
 
     public void Delete(int id)
     {
-        pokemonRepository.Delete(id);
+        bool isPokemonInGebruik = videogameRepository.IsPokemonAanwezig(id);
+        if (!isPokemonInGebruik)
+        {
+            pokemonRepository.Delete(id);            
+        }
     }
 }

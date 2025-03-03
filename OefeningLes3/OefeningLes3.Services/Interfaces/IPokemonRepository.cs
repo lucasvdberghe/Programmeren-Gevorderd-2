@@ -10,4 +10,5 @@ public interface IPokemonRepository
     PokemonResponseContract Create(PokemonResponseContract pokemon);
     void Update(PokemonResponseContract pokemon, int id);
     void Delete(int id);
+    bool IsNaamUniek(string pokemonNaam);
 }

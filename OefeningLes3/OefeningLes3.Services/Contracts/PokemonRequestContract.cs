@@ -4,6 +4,6 @@ public class PokemonRequestContract
 {
     public string Naam { get; set; }
     public string Beschrijving { get; set; }
-    public string Soort { get; set; }
-    public string Zeldzaamheid { get; set; }
+    public SoortEnum Soort { get; set; }
+    public ZeldzaamheidEnum Zeldzaamheid { get; set; }
 }

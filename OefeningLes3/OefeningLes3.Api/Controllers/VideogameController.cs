@@ -24,8 +24,15 @@ public class VideogameController(IVideogameService videogameService) : Controlle
     [HttpPost]
     public ActionResult<VideogameResponseContract> Create([FromBody] VideogameRequestContract videogame)
     {
-        var createdVideogame = videogameService.Create(videogame);
-        return CreatedAtAction(nameof(Get), new { id = createdVideogame.Id }, createdVideogame);
+        try
+        {
+            var createdVideogame = videogameService.Create(videogame);
+            return CreatedAtAction(nameof(Get), new { id = createdVideogame.Id }, createdVideogame);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpPut]

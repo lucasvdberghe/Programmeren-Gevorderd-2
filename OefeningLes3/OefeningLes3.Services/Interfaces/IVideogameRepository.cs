@@ -9,4 +9,6 @@ public interface IVideogameRepository
     VideogameResponseContract Create(VideogameResponseContract videogame);
     void Update(VideogameResponseContract videogame, int id);
     void Delete(int id);
+    bool IsPokemonAanwezig(int id);
+    bool IsNaamUniek(string videogameNaam);
 }

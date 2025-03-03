@@ -39,4 +39,9 @@ public class PokemonRepository : IPokemonRepository
     {
         _pokemons.Remove(id);
     }
+
+    public bool IsNaamUniek(string pokemonNaam)
+    {
+        return _pokemons.Values.All(pokemon => pokemon.Naam != pokemonNaam);
+    }
 }

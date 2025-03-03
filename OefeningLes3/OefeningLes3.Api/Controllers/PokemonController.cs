@@ -24,8 +24,15 @@ public class PokemonController(IPokemonService pokemonService) : ControllerBase
     [HttpPost]
     public ActionResult<PokemonResponseContract> Create([FromBody] PokemonRequestContract pokemonRequestContract)
     {
-        var newPokemon = pokemonService.Create(pokemonRequestContract);
-        return CreatedAtAction(nameof(Get), new { id = newPokemon.Id }, newPokemon);
+        try
+        {
+            var newPokemon = pokemonService.Create(pokemonRequestContract);
+            return CreatedAtAction(nameof(Get), new { id = newPokemon.Id }, newPokemon);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpPut]

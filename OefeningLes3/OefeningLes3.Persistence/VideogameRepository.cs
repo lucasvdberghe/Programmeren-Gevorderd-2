@@ -19,16 +19,29 @@ public class VideogameRepository : IVideogameRepository
 
     public VideogameResponseContract Create(VideogameResponseContract videogame)
     {
-        throw new NotImplementedException();
+        var newId = _videogames.Any() ? _videogames.Keys.Max() + 1 : 1;
+        videogame.Id = newId;
+        _videogames.Add(videogame.Id, videogame);
+        return videogame;
     }
 
     public void Update(VideogameResponseContract videogame, int id)
     {
-        throw new NotImplementedException();
+        _videogames[id] = videogame;
     }
 
     public void Delete(int id)
     {
         _videogames.Remove(id);
+    }
+
+    public bool IsPokemonAanwezig(int id)
+    {
+        return _videogames.Values.Any(videogame => videogame.Pokemons.Select(pokemon => pokemon.Id).Contains(id));
+    }
+
+    public bool IsNaamUniek(string videogameNaam)
+    {
+        return _videogames.Values.All(videogame => videogame.Naam != videogameNaam);
     }
 }

@@ -17,18 +17,27 @@ public class VideogameService(IVideogameRepository videogameRepository, IPokemon
 
     public VideogameResponseContract Create(VideogameRequestContract videogame)
     {
-        var pokemons = pokemonRepository.GetMany(videogame.PokemonIds);
-        var newVideogame = new VideogameResponseContract()
+        bool isUniekeVideogameNaam = videogameRepository.IsNaamUniek(videogame.Naam);
+        
+        if (isUniekeVideogameNaam)
         {
-            Naam = videogame.Naam,
-            Beschrijving = videogame.Beschrijving,
-            DatumUitgave = videogame.DatumUitgave,
-            Pokemons = pokemons.ToList()
-        };
-        
-        var createdVideogame = videogameRepository.Create(newVideogame);
-        
-        return createdVideogame;
+            var pokemons = pokemonRepository.GetMany(videogame.PokemonIds);
+            var newVideogame = new VideogameResponseContract()
+            {
+                Naam = videogame.Naam,
+                Beschrijving = videogame.Beschrijving,
+                DatumUitgave = videogame.DatumUitgave,
+                Pokemons = pokemons.ToList()
+            };
+
+            var createdVideogame = videogameRepository.Create(newVideogame);
+
+            return createdVideogame;
+        }
+        else
+        {
+            throw new Exception("Er bestaat al een videogame met die titel");
+        }
     }
 
     public void Update(VideogameRequestContract videogame, int id)
