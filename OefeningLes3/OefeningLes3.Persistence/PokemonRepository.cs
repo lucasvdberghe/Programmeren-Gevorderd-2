@@ -7,7 +7,6 @@ public class PokemonRepository : IPokemonRepository
 {
     private readonly Dictionary<int, PokemonResponseContract> _pokemons = new();
 
-
     public PokemonResponseContract Get(int id)
     {
         return _pokemons[id];
@@ -16,6 +15,11 @@ public class PokemonRepository : IPokemonRepository
     public IEnumerable<PokemonResponseContract> GetAll()
     {
         return _pokemons.Values.ToList();
+    }
+
+    public IEnumerable<PokemonResponseContract> GetMany(List<int> ids)
+    {
+        return _pokemons.Where(kv => ids.Contains(kv.Key)).Select(kv => kv.Value).ToList();
     }
 
     public PokemonResponseContract Create(PokemonResponseContract pokemon)
