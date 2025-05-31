@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProfileReview.Api.Contracts\ProfileReview.Api.Contracts.csproj" />
+    <ProjectReference Include="..\ProfileReview.Services.Models\ProfileReview.Services.Models.csproj" />
+    <ProjectReference Include="..\ProfileReview.Storage\ProfileReview.Storage.csproj" />
+  </ItemGroup>
+
+</Project>

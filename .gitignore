@@ -1,0 +1,10 @@
+Api + MongoDb/ProfileReview.Api/obj
+Api + MongoDb/ProfileReview.Api/bin
+Api + MongoDb/ProfileReview.Api.Contracts/bin
+Api + MongoDb/ProfileReview.Api.Contracts/obj
+Api + MongoDb/ProfileReview.Services/bin
+Api + MongoDb/ProfileReview.Services/obj
+Api + MongoDb/ProfileReview.Services.Models/bin
+Api + MongoDb/ProfileReview.Services.Models/obj
+Api + MongoDb/ProfileReview.Storage/bin
+Api + MongoDb/ProfileReview.Storage/obj
