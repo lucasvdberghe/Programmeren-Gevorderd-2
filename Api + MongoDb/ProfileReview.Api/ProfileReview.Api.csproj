@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.5" />
+    <ProjectReference Include="..\ProfileReview.Api.Contracts\ProfileReview.Api.Contracts.csproj" />
+    <ProjectReference Include="..\ProfileReview.Services\ProfileReview.Services.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ProfileReview.Api.Contracts\ProfileReview.Api.Contracts.csproj" />
-    <ProjectReference Include="..\ProfileReview.Services\ProfileReview.Services.csproj" />
+    <PackageReference Include="MongoDB.EntityFrameworkCore" Version="9.0.0" />
   </ItemGroup>
 
 </Project>

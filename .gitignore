@@ -8,3 +8,4 @@ Api + MongoDb/ProfileReview.Services.Models/bin
 Api + MongoDb/ProfileReview.Services.Models/obj
 Api + MongoDb/ProfileReview.Storage/bin
 Api + MongoDb/ProfileReview.Storage/obj
+Api + MongoDb/ProfileReview.Api/appsettings.Development.json

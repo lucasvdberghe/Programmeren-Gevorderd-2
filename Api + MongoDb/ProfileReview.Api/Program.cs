@@ -1,3 +1,4 @@
+using MongoDB.Driver;
 using ProfileReview.Services;
 using ProfileReview.Services.Interfaces;
 using ProfileReview.Storage;
@@ -12,7 +13,8 @@ builder.Services.AddControllers().AddMvcOptions(options => {
     });
 builder.Services.AddScoped<IProfileService, ProfileService>();
 builder.Services.AddScoped<IReviewService, ReviewService>();
-builder.Services.AddScoped<IProfileRepository, ProfileRepository>();
+builder.Services.AddMongoDB<ProfileReviewDbContext>(
+    new MongoClient(builder.Configuration.GetConnectionString("MongoDbConnection")), builder.Configuration.GetValue<string>("MongoDatabase") ?? throw new ArgumentNullException());
 
 var app = builder.Build();
 
