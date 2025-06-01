@@ -19,3 +19,13 @@ EventPlanner/EventPlanner.Shared/bin
 EventPlanner/EventPlanner.Shared/obj
 EventPlanner/EventPlanner.Storage/bin
 EventPlanner/EventPlanner.Storage/obj
+PG2-station-dapper/Treinoef.Api/obj
+PG2-station-dapper/Treinoef.Api/bin
+PG2-station-dapper/Treinoef.Api.Contracts/bin
+PG2-station-dapper/Treinoef.Api.Contracts/obj
+PG2-station-dapper/Treinoef.Services/bin
+PG2-station-dapper/Treinoef.Services/obj
+PG2-station-dapper/Treinoef.Services.Models/obj
+PG2-station-dapper/Treinoef.Services.Models/bin
+PG2-station-dapper/Treinoef.Storage/bin
+PG2-station-dapper/Treinoef.Storage/obj
