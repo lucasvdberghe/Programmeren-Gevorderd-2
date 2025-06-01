@@ -9,3 +9,13 @@ Api + MongoDb/ProfileReview.Services.Models/obj
 Api + MongoDb/ProfileReview.Storage/bin
 Api + MongoDb/ProfileReview.Storage/obj
 Api + MongoDb/ProfileReview.Api/appsettings.Development.json
+EventPlanner/EventPlanner.Api/bin
+EventPlanner/EventPlanner.Api/obj
+EventPlanner/EventPlanner.Api.Contracts/bin
+EventPlanner/EventPlanner.Api.Contracts/obj
+EventPlanner/EventPlanner.Services/bin
+EventPlanner/EventPlanner.Services/obj
+EventPlanner/EventPlanner.Shared/bin
+EventPlanner/EventPlanner.Shared/obj
+EventPlanner/EventPlanner.Storage/bin
+EventPlanner/EventPlanner.Storage/obj
